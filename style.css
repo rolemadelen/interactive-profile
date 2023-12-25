@@ -1,0 +1,126 @@
+:root {
+  font-family: 'Pretendard', 'Pretendard Jp', system-ui, Avenir, Helvetica,
+    Arial, sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: #111;
+  color: #b5b5b5;
+
+  --state-open: #1769eb;
+  --state-closed: #898989;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+video {
+  max-width: 100%;
+}
+
+.video-background {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+
+  filter: contrast(0.4) blur(5px);
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  font-weight: 600;
+
+  flex-wrap: wrap;
+  line-height: 1.1;
+  font-size: 2.5rem;
+  background-color: black;
+  mix-blend-mode: multiply;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: auto;
+  max-width: 980px;
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+}
+
+.content p {
+  margin: auto 2rem;
+}
+
+button {
+  font-weight: 600;
+  background: none;
+  border-radius: 15px;
+  font-size: 2.25rem;
+  color: #fff;
+  padding: 0 8px;
+  margin: 2px 8px;
+}
+
+button:hover {
+  background: var(--state-open);
+  cursor: pointer;
+}
+
+button[data-state='closed'] {
+  border: 1px solid var(--state-closed);
+}
+button[data-state='closed']:hover {
+  border: 1px solid var(--state-open);
+}
+
+button[data-state='open'] {
+  border: 1px solid var(--state-open);
+  background-color: var(--state-open);
+}
+
+button[data-state='open']:hover + span {
+  color: #1659c2;
+}
+
+button[data-state='closed'] + span {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+span {
+  filter: blur(0);
+  display: inline;
+  transition: filter 0.5s ease;
+}
+
+.blur {
+  filter: blur(8px);
+  color: #eee;
+}
+
+.blur button {
+  border: none;
+  background: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+button:focus-visible {
+  outline: 1px solid var(--state-open);
+  outline-offset: 2px;
+}
