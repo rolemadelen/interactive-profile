@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Pretendard', 'Pretendard Jp', system-ui, Avenir, Helvetica,
+  font-family: 'Pretendard', 'Pretendard JP', system-ui, Avenir, Helvetica,
     Arial, sans-serif;
 
   font-synthesis: none;
@@ -10,17 +10,13 @@
   background-color: #111;
   color: #b5b5b5;
 
-  --state-open: #0d7ada;
+  --state-open: #0087ff;
   --state-closed: #898989;
 }
 
 * {
   margin: 0;
   padding: 0;
-}
-
-video {
-  max-width: 100%;
 }
 
 .video-background {
@@ -37,41 +33,35 @@ video {
 }
 
 #app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 100vw;
   height: 100vh;
   font-weight: 600;
 
   flex-wrap: wrap;
-  line-height: 1.1;
+  line-height: 1.25;
   font-size: 2.5rem;
   background-color: black;
   mix-blend-mode: hard-light;
 }
 
 .content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin: auto;
   max-width: 980px;
-  position: relative;
-  z-index: 1;
-  height: 100vh;
-}
-
-.content p {
-  margin: auto 2rem;
+  margin: auto 1em;
 }
 
 button {
-  font-weight: 600;
-  background: none;
-  border-radius: 15px;
-  font-size: 2.25rem;
-  color: #eee;
+  background: transparent;
+  margin-left: 8px;
   padding: 0 8px;
-  margin: 2px 8px;
+  border-radius: 15px;
+
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: #fff;
 }
 
 button:hover {
@@ -82,6 +72,7 @@ button:hover {
 button[data-state='closed'] {
   border: 1px solid var(--state-closed);
 }
+
 button[data-state='closed']:hover {
   border: 1px solid var(--state-open);
 }
@@ -101,9 +92,8 @@ button[data-state='closed'] + span {
   -webkit-user-select: none;
 }
 
+/*  BLUR  */
 span {
-  filter: blur(0);
-  display: inline;
   transition: filter 0.5s ease;
 }
 
@@ -112,15 +102,17 @@ span {
   color: #eee;
 }
 
-.blur button {
+.blur button[data-state='open'],
+.blur button[data-state='closed'],
+.blur button:hover + span {
+  cursor: default;
   border: none;
   background: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
+  color: #eee;
 }
 
+/* TAB  */
 button:focus-visible {
-  outline: 1px solid var(--state-open);
+  outline: 1px solid var(--state-closed);
   outline-offset: 2px;
 }
