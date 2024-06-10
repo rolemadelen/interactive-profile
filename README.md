@@ -5,9 +5,3 @@ This project allows you to create an interactive and personalized about page whe
 ## Demo
 
 ![demo](./demo.gif)
-
-## Video
-
-[![Watch the video](https://img.youtube.com/vi/uUN1dF4bXAQ/hqdefault.jpg)](https://www.youtube.com/watch?v=uUN1dF4bXAQ)
-
-Check out the implementation video on YouTube: [HTML/CSS/JavaScript - インタラクティブな自己紹介ページの作り方](https://www.youtube.com/watch?v=uUN1dF4bXAQ)
